@@ -1,46 +1,86 @@
-# Getting Started with Create React App
+# Cryptocurrency Trading Data Analysis Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern dashboard for analyzing cryptocurrency trading data, featuring real-time data from Binance API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Candlestick Chart**: Interactive chart displaying price movements with red and green candles
+- **Order Book**: Real-time order book showing buy and sell orders
+- **Trade Volume**: Analysis of trading volume by categories
+- **Funding Rate**: Historical funding rate data for futures trading
+- **Price Change**: 24-hour price statistics and changes
+- **Volume Pulse**: Volume analysis over time
+- **Liquidation Points**: Distribution of liquidation orders
+- **AI Analysis Assistant**: Chat interface for data analysis questions
 
-### `npm start`
+## API Integration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project integrates with the Binance API to fetch real-time cryptocurrency trading data:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Spot API**: Used for candlestick data, order book, recent trades, and 24h statistics
+- **Futures API**: Used for funding rate and liquidation data
 
-### `npm test`
+The API integration is implemented with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- API client functions in `src/api/binance.ts`
+- Type definitions in `src/types/api.ts`
+- Vercel API routes for proxy to avoid CORS issues
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is deployed on Vercel with API proxy configuration:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Vercel Configuration**: The `vercel.json` file includes:
+   - CORS headers configuration
+   - API route rewrites to proxy Binance API requests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Environment Variables**:
+   - `NODE_ENV`: Set to 'production' in the Vercel deployment
 
-### `npm run eject`
+## Development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js 14+ and npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/crypto-dashboard.git
 
-## Learn More
+# Navigate to the project directory
+cd crypto-dashboard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Install dependencies
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running Locally
+
+```bash
+# Start the development server
+npm start
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+### Building for Production
+
+```bash
+# Build the application
+npm run build
+```
+
+## Technologies Used
+
+- **React**: UI library
+- **TypeScript**: Type-safe JavaScript
+- **Material-UI**: Component library
+- **Recharts**: Charting library
+- **Styled Components**: CSS-in-JS styling
+- **Vercel**: Hosting and API proxy
+
+## License
+
+MIT
