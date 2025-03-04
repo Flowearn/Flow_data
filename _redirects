@@ -1,0 +1,2 @@
+/api/binance/* https://api.binance.com/:splat 200
+/api/binance-futures/* https://fapi.binance.com/:splat 200 
